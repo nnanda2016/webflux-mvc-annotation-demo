@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: AppEngg POC
+  profiles:
+    active: instance1
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
+management:
+  endpoints:
+    web:
+      base-path: /manage
+      exposure:
+        include: shutdown,loggers,health,info,metrics
+  endpoint:
+    shutdown:
+      enabled: true
+  health:
+    db:
+      enabled: false
+    couchbase:
+      enabled: false
+    diskspace:
+      enabled: false
+    elasticsearch:
+      enabled: false
+    influxdb:
+      enabled: false
+    jms:
+      enabled: false
+    ldap:
+      enabled: false
+    mail:
+      enabled: false
+    mongo:
+      enabled: false
+    neo4j:
+      enabled: false
+    rabbit:
+      enabled: false
+    redis:
+      enabled: false
+    solr:
+      enabled: false
+      
+---
+
+spring:
+  profiles: dev
+
+server:
+  port: 9090
